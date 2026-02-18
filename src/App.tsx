@@ -55,6 +55,11 @@ function App() {
                           <Route index element={<SubjectsList />} />
                           <Route path= "create" element={<SubjectsCreate />} />
                       </Route>
+
+                      <Route path="classes">
+                          <Route index element={<ClassesList />} />
+                          <Route path= "create" element={<ClassesCreate />} />
+                      </Route>
                   </Route>
               </Routes>
               <Toaster />
