@@ -11,7 +11,7 @@ const UploadWidget = ({value = null, onChange, disabled = false}) => {
 
     // Whether previewing file or showing upload widget for the first time- so manage a state
     // If a value exists we show otherwise null
-    const [preview, setPreview] = useState(value);
+    const [preview, setPreview] = useState<UploadWidgetValue | null>(value);
 
     // For client side deletion
     const [deleteToken, setDeleteToken] = useState<string | null>(null);
@@ -27,7 +27,7 @@ const UploadWidget = ({value = null, onChange, disabled = false}) => {
 
     //Goal - Always keep the onchange parameter
     useEffect(() => {
-        onChangeREf.current = onChangeREf;
+        onChangeREf.current = onChange;
     }, [onChange]);
 
     // Initialize cloudinary widget for client side
@@ -88,7 +88,7 @@ const UploadWidget = ({value = null, onChange, disabled = false}) => {
                     </div>
                 ): <div className="upload-dropzone" role={"button"} tabIndex={0}
                         onClick={openWidget} onKeyDown = {(event) => {
-                            if (event.key === "Enter") {
+                            if (event.key === "Enter" || event.key === " "){
                                 event.preventDefault();
                                 openWidget();
                             }
