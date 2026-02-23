@@ -65,30 +65,6 @@ const ClassesCreate = () => {
         }
     };
 
-    const teachers = [
-        {
-            id: "1",
-            name: "John",
-        },
-        {
-            id: "2",
-            name: "Jane",
-        }
-    ]
-
-    const subjects = [
-        {
-            id: 1,
-            name: "Maths",
-            code: "MATH",
-        },
-        {
-            id: 2,
-            name: "Comp Sci",
-            code: "CS",
-        }
-    ]
-
     // Fetch subjects list
     const { query: subjectsQuery } = useList<Subject>({
         resource: "subjects",
@@ -112,8 +88,11 @@ const ClassesCreate = () => {
         },
     });
 
+    const subjects = subjectsQuery.data?.data || [];
+    const subjectsLoading = subjectsQuery.isLoading;
 
-
+    const teachers = teachersQuery.data?.data || [];
+    const teachersLoading = teachersQuery.isLoading;
 
     return (
         <CreateView className="class-view">
@@ -221,6 +200,7 @@ const ClassesCreate = () => {
                                                         field.onChange(Number(value))
                                                     }
                                                     value={field.value?.toString()}
+                                                    disabled={subjectsLoading}
 
                                                 >
                                                     <FormControl>
@@ -255,6 +235,7 @@ const ClassesCreate = () => {
                                                 <Select
                                                     onValueChange={field.onChange}
                                                     value={field.value?.toString()}
+                                                    disabled={teachersLoading}
 
                                                 >
                                                     <FormControl>

@@ -1,6 +1,6 @@
 import {createDataProvider, CreateDataProviderOptions} from "@refinedev/rest";
 import {BACKEND_BASE_URL} from "../../constants";
-import {ListResponse} from "../../types";
+import {CreateResponse, ListResponse} from "../../types";
 
 // NOTE: This file defines the options object that can be provided to
 // `createDataProvider(options)` so that refine knows how to build requests and
@@ -59,6 +59,18 @@ const options: CreateDataProviderOptions = {
       return payload.pagination?.total ?? payload.data?.length ?? 0;
     },
   },
+
+  create: {
+    getEndpoint: ({ resource }) => resource,
+
+    buildBodyParams: async ({ variables }) => variables,
+
+    mapResponse: async (response) => {
+      const json: CreateResponse = await response.json();
+
+      return json.data ?? {};
+    }
+  }
 }
 
 const { dataProvider } = createDataProvider(BACKEND_BASE_URL, options);
