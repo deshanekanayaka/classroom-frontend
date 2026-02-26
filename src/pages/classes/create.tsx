@@ -1,9 +1,9 @@
 import { useForm } from "@refinedev/react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card.tsx";
+import { Separator } from "@/components/ui/separator.tsx";
 import {
     Form,
     FormControl,
@@ -11,24 +11,24 @@ import {
     FormItem,
     FormLabel,
     FormMessage,
-} from "@/components/ui/form";
+} from "@/components/ui/form.tsx";
 import {
     Select,
     SelectContent,
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@/components/ui/select.tsx";
 
-import { CreateView } from "@/components/refine-ui/views/create-view";
-import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
+import { CreateView } from "@/components/refine-ui/views/create-view.tsx";
+import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb.tsx";
 
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/components/ui/textarea.tsx";
 import { useBack, useList } from "@refinedev/core";
 import { Loader2 } from "lucide-react";
-import { classSchema } from "@/lib/schema";
+import { classSchema } from "@/lib/schema.ts";
 // import UploadWidget from "@/components/upload-widget";
-import { Subject, User } from "types";
+import { Subject, User } from "../../../types";
 import z from "zod";
 import UploadWidget from "@/components/upload-widget.tsx";
 
