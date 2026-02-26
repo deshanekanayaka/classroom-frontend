@@ -10,16 +10,16 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { ListView } from "@/components/refine-ui/views/list-view";
-import { CreateButton } from "@/components/refine-ui/buttons/create";
-import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
-import { DataTable } from "@/components/refine-ui/data-table/data-table";
-import { ShowButton } from "@/components/refine-ui/buttons/show";
+} from "@/components/ui/select.tsx";
+import { Badge } from "@/components/ui/badge.tsx";
+import { Input } from "@/components/ui/input.tsx";
+import { ListView } from "@/components/refine-ui/views/list-view.tsx";
+import { CreateButton } from "@/components/refine-ui/buttons/create.tsx";
+import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb.tsx";
+import { DataTable } from "@/components/refine-ui/data-table/data-table.tsx";
+import { ShowButton } from "@/components/refine-ui/buttons/show.tsx";
 
-import { Subject, User } from "types"
+import { Subject, User } from "../../../types"
 
 type ClassListItem = {
     id: number;

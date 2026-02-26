@@ -12,16 +12,16 @@ import { Toaster } from "./components/refine-ui/notification/toaster";
 import { useNotificationProvider } from "./components/refine-ui/notification/use-notification-provider";
 import { ThemeProvider } from "./components/refine-ui/theme/theme-provider";
 import { dataProvider } from "./providers/data";
-import Dashboard from "@/lib/pages/dashboard.tsx";
+import Dashboard from "@/pages/dashboard.tsx";
 import {BookOpen, GraduationCap, Home} from "lucide-react";
 import {Layout} from "@/components/refine-ui/layout/layout.tsx";
 
-import SubjectsList from "@/lib/pages/subjects/list.tsx";
-import SubjectsCreate from "@/lib/pages/subjects/create.tsx";
+import SubjectsList from "@/pages/subjects/list.tsx";
+import SubjectsCreate from "@/pages/subjects/create.tsx";
 
-import ClassesList from "@/lib/pages/classes/list.tsx";
-import ClassesCreate from "@/lib/pages/classes/create.tsx";
-
+import ClassesList from "@/pages/classes/list.tsx";
+import ClassesCreate from "@/pages/classes/create.tsx";
+import ClassesShow from "@/pages/classes/show.tsx";
 function App() {
   return (
     <BrowserRouter>
@@ -46,7 +46,10 @@ function App() {
                       meta: { label: 'Subjects', icon: <BookOpen /> }
                   },
                   {
-                      name: 'classes', list: '/classes', create: '/classes/create',
+                      name: 'classes',
+                      list: '/classes',
+                      create: '/classes/create',
+                      show: '/classes/show/:id',
                       meta: { label: 'Classes', icon: <GraduationCap /> }
                   }
               ]}
@@ -67,6 +70,7 @@ function App() {
                       <Route path="classes">
                           <Route index element={<ClassesList />} />
                           <Route path= "create" element={<ClassesCreate />} />
+                          <Route path={"show/:id"} element={<ClassesShow />} />
                       </Route>
                   </Route>
               </Routes>
